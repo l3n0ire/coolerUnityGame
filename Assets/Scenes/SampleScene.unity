@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
+  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427135, b: 0.56452316, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -458,8 +458,8 @@ GameObject:
   - component: {fileID: 935395912}
   - component: {fileID: 935395911}
   m_Layer: 0
-  m_Name: powerUp
-  m_TagString: Untagged
+  m_Name: speed
+  m_TagString: powerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -748,9 +748,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e12c763600504ed19ea8792f96cae88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 100
+  velocity: 5
   jump: 200
-  Ob: {fileID: 1070005077}
+  Ob1: {fileID: 1070005077}
+  Ob2: {fileID: 1752857328}
+  currentName: 
+  isOb1: 1
+  rb1: {fileID: 1070005082}
+  rb2: {fileID: 1752857329}
 --- !u!1 &1083363667
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +951,6 @@ GameObject:
   - component: {fileID: 1752857331}
   - component: {fileID: 1752857329}
   - component: {fileID: 1752857330}
-  - component: {fileID: 1752857334}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Playable
@@ -1042,18 +1046,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1752857334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752857328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e12c763600504ed19ea8792f96cae88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  move: 200
-  jump: 300
-  Ob: {fileID: 1752857328}
