@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public int move =100;
-    public int jump =100;
+    public int velocity = 5;
+    public int jump =500;
     public GameObject Ob;
     bool inAir=false;
     Rigidbody rb;
@@ -25,7 +25,7 @@ public class player : MonoBehaviour
 
         }
         if(collision.gameObject.name=="powerUp"){
-            move*=2;
+            velocity*=2;
             jump*=2;
             Destroy(collision.gameObject);
         }
@@ -34,43 +34,20 @@ public class player : MonoBehaviour
     void Update()
     {
 
-        if(Ob.name=="Player"){
-            if(Input.GetKeyDown(KeyCode.UpArrow)){
-                rb.AddForce(new Vector3(0,0,move));
-            }
-            else if(Input.GetKeyDown(KeyCode.LeftArrow)){
-                rb.AddForce(new Vector3(-move,0,0));
-            }
-            else if(Input.GetKeyDown(KeyCode.RightArrow)){
-                rb.AddForce(new Vector3(move,0,0));
-            }
-            else if(Input.GetKeyDown(KeyCode.DownArrow)){
-                rb.AddForce(new Vector3(0,0,-move));
-            }
-            else if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
-                rb.AddForce(new Vector3(0,jump,0));
-                inAir=true;
-            }
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
+        
+        Vector3 move = new Vector3(moveHorizontal, 0, moveVertical);
+
+        if(Ob.name == "Player")
+        {
+            transform.Translate(move * velocity * Time.deltaTime, Space.World);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(move), 0.15F);
         }
 
-        else if(Ob.name=="enemy"){
-            if(Input.GetKeyDown(KeyCode.W)){
-                rb.AddForce(new Vector3(0,0,move));
-            }
-            else if(Input.GetKeyDown(KeyCode.A)){
-                rb.AddForce(new Vector3(-move,0,0));
-            }
-            else if(Input.GetKeyDown(KeyCode.D)){
-                rb.AddForce(new Vector3(move,0,0));
-            }
-            else if(Input.GetKeyDown(KeyCode.S)){
-                rb.AddForce(new Vector3(0,0,-move));
-            }
-            else if(Input.GetKeyDown(KeyCode.LeftShift) && !inAir){
-                rb.AddForce(new Vector3(0,jump,0));
-                inAir=true;
-
-            }
+        if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
+            rb.AddForce(new Vector3(0,jump,0));
+            inAir=true;
         }
     }
 }
