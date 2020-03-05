@@ -732,7 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e12c763600504ed19ea8792f96cae88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: 20
+  move: 2
   jump: 200
   Ob: {fileID: 1070005077}
 --- !u!143 &1070005084
