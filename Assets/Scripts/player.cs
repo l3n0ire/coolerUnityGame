@@ -4,22 +4,16 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    public int move =1;
+    public int move =100;
     public int jump =100;
     public GameObject Ob;
     bool inAir=false;
     Rigidbody rb;
-    CharacterController characterController;
-    private Vector3 moveDirection = new Vector3(0,0,0);
-    float gravity=10;
-
-
 
     // Start is called before the first frame update
     void Start()
     {
         rb =Ob.GetComponent<Rigidbody>();
-        characterController = GetComponent<CharacterController>();
 
         //rb.AddForce(new Vector3(0,500,0));
     }
@@ -44,21 +38,16 @@ public class player : MonoBehaviour
 
         if(Ob.name=="Player"){
             if(Input.GetKeyDown(KeyCode.UpArrow)){
-                //rb.AddForce(new Vector3(0,0,move));
-                moveDirection = new Vector3(0,0,1);
-                moveDirection *=move;
+                rb.AddForce(new Vector3(0,0,move));
             }
-            else if(Input.GetKeyDown(KeyCode.LeftArrow)){  
-                moveDirection = new Vector3(-1,0,0);
-                moveDirection *=move; 
+            else if(Input.GetKeyDown(KeyCode.LeftArrow)){
+                rb.AddForce(new Vector3(-move,0,0));
             }
             else if(Input.GetKeyDown(KeyCode.RightArrow)){
-                moveDirection = new Vector3(1,0,0);
-                moveDirection *=move;
+                rb.AddForce(new Vector3(move,0,0));
             }
             else if(Input.GetKeyDown(KeyCode.DownArrow)){
-                moveDirection = new Vector3(0,0,-1);
-                moveDirection *=move;
+                rb.AddForce(new Vector3(0,0,-move));
             }
             else if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
                 rb.AddForce(new Vector3(0,jump,0));
@@ -85,8 +74,5 @@ public class player : MonoBehaviour
 
             }
         }
-        moveDirection.y -=gravity *Time.deltaTime;
-        characterController.Move( moveDirection*Time.deltaTime );
-
     }
 }
