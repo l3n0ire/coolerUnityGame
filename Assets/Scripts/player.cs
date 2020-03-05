@@ -20,9 +20,7 @@ public class player : MonoBehaviour
 
     // Update is called once per frame
     void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.name=="Ground" || 
-        collision.gameObject.name=="Player"||
-        collision.gameObject.name=="enemy"  && inAir){
+        if(collision.gameObject.tag == "Surface" || collision.gameObject.tag == "Playable"  && inAir){
             inAir=false;
 
         }

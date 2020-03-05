@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427135, b: 0.56452316, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667564, g: 0.48427147, b: 0.56452364, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 115692439}
   m_Layer: 0
   m_Name: wall1 (1)
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 833272011}
   m_Layer: 0
   m_Name: wall1 (3)
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 939165299}
   m_Layer: 0
   m_Name: wall1 (2)
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -643,7 +643,7 @@ GameObject:
   - component: {fileID: 1070005083}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Playable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 1083363668}
   m_Layer: 0
   m_Name: wall1
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -856,7 +856,7 @@ GameObject:
   - component: {fileID: 1333324024}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -949,7 +949,7 @@ GameObject:
   - component: {fileID: 1752857334}
   m_Layer: 0
   m_Name: enemy
-  m_TagString: Untagged
+  m_TagString: Playable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
