@@ -11,6 +11,11 @@ public class player : MonoBehaviour
     Rigidbody rb;
     CharacterController characterController;
     private Vector3 moveDirection = new Vector3(0,0,0);
+    Vector3 up = new Vector3(0,0,1);
+    Vector3 down = new Vector3(0,0,-1);
+    Vector3 left = new Vector3(-1,0,0);
+    Vector3 right = new Vector3(1,0,0);
+    Vector3 zero = new Vector3(0,0,0);
     float gravity=10;
 
 
@@ -45,25 +50,35 @@ public class player : MonoBehaviour
         if(Ob.name=="Player"){
             if(Input.GetKeyDown(KeyCode.UpArrow)){
                 //rb.AddForce(new Vector3(0,0,move));
-                moveDirection = new Vector3(0,0,1);
-                moveDirection *=move;
+                moveDirection =up*move;
             }
-            else if(Input.GetKeyDown(KeyCode.LeftArrow)){  
-                moveDirection = new Vector3(-1,0,0);
-                moveDirection *=move; 
+            if(Input.GetKeyDown(KeyCode.LeftArrow)){  
+                moveDirection =left*move;
             }
-            else if(Input.GetKeyDown(KeyCode.RightArrow)){
-                moveDirection = new Vector3(1,0,0);
-                moveDirection *=move;
+            if(Input.GetKeyDown(KeyCode.RightArrow)){
+                moveDirection =right*move;
             }
-            else if(Input.GetKeyDown(KeyCode.DownArrow)){
-                moveDirection = new Vector3(0,0,-1);
-                moveDirection *=move;
+            if(Input.GetKeyDown(KeyCode.DownArrow)){
+                moveDirection =down*move;
             }
-            else if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
+            if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
                 rb.AddForce(new Vector3(0,jump,0));
                 inAir=true;
             }
+
+            if(Input.GetKeyUp(KeyCode.UpArrow)){
+                moveDirection = zero;
+            }
+            if(Input.GetKeyUp(KeyCode.LeftArrow)){  
+                moveDirection = zero;
+            }
+            if(Input.GetKeyUp(KeyCode.RightArrow)){
+                moveDirection = zero;
+            }
+            if(Input.GetKeyUp(KeyCode.DownArrow)){
+                moveDirection = zero;
+            }
+            
         }
 
         else if(Ob.name=="enemy"){
