@@ -11,8 +11,8 @@ public class speed : MonoBehaviour
         
     }
     void OnCollisionEnter(Collision collision) {
-        collision.gameObject.GetComponent<player>().velocity *=2;
-        collision.gameObject.GetComponent<player>().velocity *=2;
+        GameObject.Find("Player").GetComponent<player>().velocity *=2;
+        GameObject.Find("Player").GetComponent<player>().jump *=2;
         Destroy(GameObject.Find("speed"));
 
         
