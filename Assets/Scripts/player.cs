@@ -6,22 +6,24 @@ public class player : MonoBehaviour
 {
     public int velocity = 5;
     public int jump =500;
-    public GameObject Ob1;
-    public GameObject Ob2;
-    public string currentName;
+    GameObject Ob1;
+    GameObject Ob2;
     bool inAir=false;
     public bool isOb1=true;
-    public Rigidbody rb1;
-    public Rigidbody rb2;
+    Rigidbody rb1;
+    Rigidbody rb2;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentName=Ob1.name;
-        
+        Ob1 = GameObject.Find("Player");
+        Ob2 = GameObject.Find("enemy");
+        rb1=  Ob1.GetComponent<Rigidbody>();
+        rb2=  Ob2.GetComponent<Rigidbody>();
 
 
-        //rb.AddForce(new Vector3(0,500,0));
+
+
     }
 
     // Update is called once per frame
@@ -29,14 +31,6 @@ public class player : MonoBehaviour
         if(collision.gameObject.tag == "Surface" || collision.gameObject.tag == "Playable"  && inAir){
             inAir=false;
 
-        }
-        if(collision.gameObject.tag =="powerUp"){
-            if(collision.gameObject.name=="speed"){
-                  velocity*=2;
-                  jump*=2;
-                
-                Destroy(collision.gameObject);
-            }
         }
         
     }
@@ -64,7 +58,10 @@ public class player : MonoBehaviour
        else if(!isOb1 )
         {
             Ob2.transform.Translate(move * velocity * Time.deltaTime, Space.World);
-            Ob2.transform.rotation = Quaternion.Slerp(Ob2.transform.rotation, Quaternion.LookRotation(move), 0.15F);
+            if(move!=Vector3.zero){
+                Ob2.transform.rotation = Quaternion.Slerp(Ob2.transform.rotation, Quaternion.LookRotation(move), 0.15F);
+
+            }
        }
 
         if(Input.GetKeyDown(KeyCode.RightShift) && !inAir){
